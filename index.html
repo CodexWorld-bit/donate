@@ -84,11 +84,6 @@ input[type=range]::-moz-range-thumb{width:28px;height:28px;background:var(--acce
 .payment-btn:hover{filter:brightness(1.1);transform:scale(1.01)}
 .rules-link-small{text-align:center;font-size:0.85rem;color:var(--text-muted);margin-top:16px}
 .rules-link-small a{color:var(--accent-gold);text-decoration:underline;cursor:pointer;font-weight:600}
-.receipt-screen{text-align:center}
-.receipt-icon{font-size:4rem;margin-bottom:20px}
-.receipt-details{background:#151b2b;border-radius:20px;padding:24px;margin:24px 0;text-align:left}
-.receipt-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border-color)}
-.receipt-row:last-child{border-bottom:none;font-weight:800;font-size:1.2rem;color:var(--accent-emerald)}
 .sbp-block{background:linear-gradient(145deg,#151b2b,#0d1220);border:1px solid var(--border-color);border-radius:20px;padding:24px;margin-bottom:24px}
 .sbp-title{font-size:1.1rem;font-weight:800;margin-bottom:18px;display:flex;align-items:center;gap:10px}
 .sbp-title::before{content:'📱';font-size:1.3rem}
@@ -105,19 +100,19 @@ input[type=range]::-moz-range-thumb{width:28px;height:28px;background:var(--acce
 .sbp-instruction strong{color:var(--accent-gold)}
 .paid-btn{background:linear-gradient(145deg,#10b981,#059669);border:none;color:#fff;font-weight:900;font-size:1.2rem;padding:18px;border-radius:60px;width:100%;cursor:pointer;transition:0.2s;box-shadow:0 8px 24px rgba(16,185,129,0.4);text-transform:uppercase;letter-spacing:0.5px}
 .paid-btn:hover{filter:brightness(1.15);transform:scale(1.01)}
-.check-receipt{background:#fff;color:#0b0f19;border-radius:20px;padding:28px;margin:24px 0;text-align:left;font-size:0.95rem;box-shadow:0 20px 40px rgba(0,0,0,0.4)}
-.check-receipt h4{font-size:1.3rem;font-weight:900;text-align:center;margin-bottom:6px;letter-spacing:1px}
-.check-receipt .check-subtitle{text-align:center;color:#64748b;font-size:0.8rem;margin-bottom:20px;padding-bottom:16px;border-bottom:2px dashed #cbd5e1}
-.check-line{display:flex;justify-content:space-between;padding:8px 0;gap:12px;font-size:0.9rem}
-.check-line .k{color:#64748b}
-.check-line .v{font-weight:700;text-align:right;word-break:break-word}
-.check-total{border-top:2px dashed #cbd5e1;margin-top:12px;padding-top:14px;display:flex;justify-content:space-between;font-size:1.15rem;font-weight:900}
-.check-total .v{color:#059669}
-.check-status{margin-top:16px;background:#fef3c7;border:1px solid #fbbf24;border-radius:12px;padding:12px;text-align:center;font-weight:700;color:#92400e;font-size:0.9rem}
-.check-buttons{display:flex;flex-direction:column;gap:12px;margin-top:8px}
-.check-btn{background:linear-gradient(145deg,var(--accent-emerald),#059669);border:none;color:#fff;font-weight:800;font-size:1rem;padding:16px;border-radius:60px;cursor:pointer;transition:0.2s;width:100%;box-shadow:0 8px 24px rgba(16,185,129,0.3)}
-.check-btn:hover{filter:brightness(1.1);transform:scale(1.01)}
-.check-btn.secondary{background:linear-gradient(145deg,#3b82f6,#2563eb);box-shadow:0 8px 24px rgba(59,130,246,0.3)}
+.ticket-screen{text-align:center}
+.ticket-icon{font-size:4rem;margin-bottom:16px}
+.ticket-number{font-size:1.8rem;font-weight:900;color:var(--accent-emerald);margin-bottom:20px}
+.ticket-details{background:#151b2b;border-radius:20px;padding:24px;margin:20px 0;text-align:left}
+.ticket-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border-color);gap:12px;flex-wrap:wrap}
+.ticket-row:last-child{border-bottom:none}
+.ticket-row .k{color:var(--text-muted);font-weight:600;font-size:0.9rem}
+.ticket-row .v{font-weight:700;text-align:right;word-break:break-word}
+.ticket-status{display:inline-block;background:#fef3c7;color:#92400e;padding:6px 16px;border-radius:20px;font-weight:800;font-size:0.85rem}
+.ticket-warning{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.4);border-radius:16px;padding:18px;margin:20px 0;font-size:0.95rem;line-height:1.6;text-align:left}
+.ticket-warning strong{color:#fca5a5}
+.vk-btn{background:linear-gradient(145deg,#3b82f6,#2563eb);border:none;color:#fff;font-weight:800;font-size:1.1rem;padding:18px;border-radius:60px;width:100%;cursor:pointer;transition:0.2s;box-shadow:0 8px 24px rgba(59,130,246,0.3);display:flex;align-items:center;justify-content:center;gap:10px}
+.vk-btn:hover{filter:brightness(1.1);transform:scale(1.01)}
 @media(max-width:768px){
 body{padding:0 12px 40px}
 .server-name{font-size:1.4rem}
@@ -130,7 +125,7 @@ body{padding:0 12px 40px}
 .modal{padding:28px 20px}
 .modal h3{font-size:1.5rem}
 .sbp-sum .amount{font-size:1.8rem}
-.check-receipt{padding:20px}
+.ticket-number{font-size:1.4rem}
 }
 @media(max-width:480px){
 header{flex-direction:column;align-items:flex-start}
@@ -211,7 +206,7 @@ var SBP_PHONE_DISPLAY = '+7 (927) 217-93-52';
 var SBP_PHONE_RAW = '+79272179352';
 var SBP_BANK = 'Сбербанк (СБП)';
 var SBP_RECIPIENT = 'Артём А.';
-var ADMIN_URL = 'https://vk.ru/codexworld';
+var VK_URL = 'https://vk.ru/codexworld';
 
 var products = [
 {id:1,category:'privileges',name:'HERO',bonus:'+20 риликов',price:1,icon:'🛡️',badge:null},
@@ -242,7 +237,7 @@ var currentCategory = 'all';
 var currentProduct = null;
 var riliksAmount = 500;
 var toastTimeout = null;
-var orderState = {nickname:'', email:'', promo:'', orderNumber:null, orderDate:null};
+var orderState = {nickname:'', promo:'', orderNumber:null};
 
 var productsGrid = document.getElementById('productsGrid');
 var categoriesNav = document.getElementById('categoriesNav');
@@ -353,11 +348,6 @@ paymentModalContent.innerHTML = '<button class="modal-close" id="closePaymentBtn
 '<div class="error-text" id="nicknameError">Укажите ник с сервера!</div>' +
 '</div>' +
 '<div class="form-group">' +
-'<label for="emailInput">Ваша почта (Email) для чека *</label>' +
-'<input type="email" id="emailInput" placeholder="example@mail.ru" autocomplete="off" value="' + (orderState.email || '') + '">' +
-'<div class="error-text" id="emailError">Укажите корректный Email (должен содержать @)!</div>' +
-'</div>' +
-'<div class="form-group">' +
 '<label for="promoInput">Промокод (если есть)</label>' +
 '<input type="text" id="promoInput" placeholder="Введите промокод" value="' + (orderState.promo || '') + '">' +
 '</div>' +
@@ -387,41 +377,22 @@ currentProduct = null;
 
 function handleGoToPayment(){
 var nicknameInput = document.getElementById('nicknameInput');
-var emailInput = document.getElementById('emailInput');
 var promoInput = document.getElementById('promoInput');
 var nickname = nicknameInput.value.trim();
-var email = emailInput.value.trim();
 var promo = promoInput.value.trim();
 var nicknameError = document.getElementById('nicknameError');
-var emailError = document.getElementById('emailError');
-var valid = true;
 
 if(!nickname){
 nicknameInput.classList.add('error');
 nicknameError.classList.add('visible');
-valid = false;
-}else{
-nicknameInput.classList.remove('error');
-nicknameError.classList.remove('visible');
-}
-
-if(!email || email.indexOf('@') === -1){
-emailInput.classList.add('error');
-emailError.classList.add('visible');
-valid = false;
-}else{
-emailInput.classList.remove('error');
-emailError.classList.remove('visible');
-}
-
-if(!valid){
-if(!nickname){nicknameInput.focus()}
-else if(!email || email.indexOf('@') === -1){emailInput.focus()}
+nicknameInput.focus();
 return;
 }
 
+nicknameInput.classList.remove('error');
+nicknameError.classList.remove('visible');
+
 orderState.nickname = nickname;
-orderState.email = email;
 orderState.promo = promo;
 
 showSbpScreen();
@@ -438,8 +409,7 @@ paymentModalContent.innerHTML = '<button class="modal-close" id="closeSbpBtn">&t
 '<span class="price">' + formatPrice(price) + '</span>' +
 '</div>' +
 '<div style="background:#151b2b;border-radius:16px;padding:16px;margin-bottom:20px;font-size:0.9rem">' +
-'<div style="display:flex;justify-content:space-between;padding:6px 0"><span style="color:var(--text-muted)">Ник:</span><span style="font-weight:700">' + orderState.nickname + '</span></div>' +
-'<div style="display:flex;justify-content:space-between;padding:6px 0"><span style="color:var(--text-muted)">Email:</span><span style="font-weight:700;word-break:break-all">' + orderState.email + '</span></div>' +
+'<div style="display:flex;justify-content:space-between;padding:6px 0"><span style="color:var(--text-muted)">Игровой ник:</span><span style="font-weight:700">' + orderState.nickname + '</span></div>' +
 '</div>' +
 '<div class="sbp-sum">' +
 '<div class="label">Сумма к переводу</div>' +
@@ -463,59 +433,36 @@ document.getElementById('closeSbpBtn').addEventListener('click', closePaymentMod
 document.getElementById('copySbpBtn').addEventListener('click', function(){
 copyToClipboard(SBP_PHONE_RAW, 'Номер скопирован!');
 });
-document.getElementById('paidBtn').addEventListener('click', showReceiptScreen);
+document.getElementById('paidBtn').addEventListener('click', showTicketScreen);
 }
 
-function showReceiptScreen(){
+function showTicketScreen(){
 orderState.orderNumber = Math.floor(100000 + Math.random() * 900000);
-orderState.orderDate = new Date();
-
-var dateStr = orderState.orderDate.toLocaleDateString('ru-RU', {day:'2-digit', month:'2-digit', year:'numeric'}) +
-' ' + orderState.orderDate.toLocaleTimeString('ru-RU', {hour:'2-digit', minute:'2-digit'});
 
 var productName = getProductName(currentProduct);
 var price = currentProduct.price;
 
-var receiptText = 'ЭЛЕКТРОННЫЙ ЧЕК — CodexWorld\n' +
-'--------------------------------\n' +
-'Заказ №: ' + orderState.orderNumber + '\n' +
-'Дата: ' + dateStr + '\n' +
-'--------------------------------\n' +
-'Ник: ' + orderState.nickname + '\n' +
-'Email: ' + orderState.email + '\n' +
-'Товар: ' + productName + '\n' +
-'Сумма: ' + formatPrice(price) + '\n' +
-'--------------------------------\n' +
-'Статус: Ожидает подтверждения администратором\n';
-
-var mailtoLink = 'mailto:' + encodeURIComponent(orderState.email) +
-'?subject=' + encodeURIComponent('Чек CodexWorld — заказ №' + orderState.orderNumber) +
-'&body=' + encodeURIComponent(receiptText);
-
-paymentModalContent.innerHTML = '<button class="modal-close" id="closeReceiptBtn">&times;</button>' +
-'<h3>Электронный чек</h3>' +
-'<div class="check-receipt">' +
-'<h4>CODEXWORLD</h4>' +
-'<div class="check-subtitle">Электронный чек об оплате</div>' +
-'<div class="check-line"><span class="k">Номер заказа</span><span class="v">#' + orderState.orderNumber + '</span></div>' +
-'<div class="check-line"><span class="k">Дата и время</span><span class="v">' + dateStr + '</span></div>' +
-'<div class="check-line"><span class="k">Игровой ник</span><span class="v">' + orderState.nickname + '</span></div>' +
-'<div class="check-line"><span class="k">Почта</span><span class="v">' + orderState.email + '</span></div>' +
-'<div class="check-line"><span class="k">Товар</span><span class="v">' + productName + '</span></div>' +
-'<div class="check-total"><span>Итого</span><span class="v">' + formatPrice(price) + '</span></div>' +
-'<div class="check-status">Статус: Ожидает подтверждения администратором</div>' +
+paymentModalContent.innerHTML = '<button class="modal-close" id="closeTicketBtn">&times;</button>' +
+'<div class="ticket-screen">' +
+'<div class="ticket-icon">🧾</div>' +
+'<h3 style="margin-bottom:8px">Заявка на выдачу доната</h3>' +
+'<div class="ticket-number">#' + orderState.orderNumber + '</div>' +
+'<div class="ticket-details">' +
+'<div class="ticket-row"><span class="k">Сервер</span><span class="v">CodexWorld</span></div>' +
+'<div class="ticket-row"><span class="k">Игровой ник</span><span class="v">' + orderState.nickname + '</span></div>' +
+'<div class="ticket-row"><span class="k">Товар</span><span class="v">' + productName + '</span></div>' +
+'<div class="ticket-row"><span class="k">Сумма</span><span class="v">' + formatPrice(price) + '</span></div>' +
+'<div class="ticket-row"><span class="k">Статус</span><span class="v"><span class="ticket-status">Ожидает проверки платежа</span></span></div>' +
 '</div>' +
-'<div class="check-buttons">' +
-'<button class="check-btn" id="sendEmailBtn">📧 Отправить чек себе на почту</button>' +
-'<button class="check-btn secondary" id="sendAdminBtn">💬 Отправить чек администратору</button>' +
+'<div class="ticket-warning">' +
+'<strong>Внимание!</strong> Донат выдаётся только после реального поступления денег. Отправьте скриншот перевода из банка администратору в ВК.' +
+'</div>' +
+'<button class="vk-btn" id="sendVkBtn">💬 Отправить чек из банка в ВК</button>' +
 '</div>';
 
-document.getElementById('closeReceiptBtn').addEventListener('click', closePaymentModal);
-document.getElementById('sendEmailBtn').addEventListener('click', function(){
-window.location.href = mailtoLink;
-});
-document.getElementById('sendAdminBtn').addEventListener('click', function(){
-window.open(ADMIN_URL, '_blank');
+document.getElementById('closeTicketBtn').addEventListener('click', closePaymentModal);
+document.getElementById('sendVkBtn').addEventListener('click', function(){
+window.open(VK_URL, '_blank');
 });
 }
 
