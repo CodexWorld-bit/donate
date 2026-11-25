@@ -51,7 +51,7 @@ input[type=range]::-moz-range-thumb{width:28px;height:28px;background:var(--acce
 .product-card{background:var(--bg-card);border:1px solid var(--border-color);border-radius:24px;padding:24px 20px 20px;transition:all 0.25s;display:flex;flex-direction:column;position:relative;overflow:hidden}
 .product-card:hover{transform:translateY(-6px);border-color:#2d3a5e;box-shadow:0 20px 30px -10px rgba(0,0,0,0.6)}
 .badge{position:absolute;top:16px;right:16px;background:var(--sale-red);color:#fff;font-weight:800;font-size:0.75rem;padding:5px 12px;border-radius:20px;letter-spacing:0.5px;text-transform:uppercase;z-index:2}
-.badge.discount{background:var(--sale-red);color:#fff}
+.badge.bonus{background:var(--accent-gold);color:#0b0f19;box-shadow:0 0 14px rgba(251,191,36,0.6)}
 .product-icon{font-size:3.2rem;margin-bottom:12px;line-height:1;filter:drop-shadow(0 4px 8px rgba(0,0,0,0.4))}
 .product-name{font-size:1.25rem;font-weight:800;margin-bottom:6px;letter-spacing:-0.3px}
 .product-bonus{color:var(--accent-gold);font-weight:600;font-size:0.9rem;margin-bottom:16px;min-height:1.3em}
@@ -159,25 +159,24 @@ header{flex-direction:column;align-items:flex-start}
 <div class="categories-nav" id="categoriesNav">
 <button class="cat-btn active" data-cat="all">Все товары</button>
 <button class="cat-btn" data-cat="privileges">Привилегии</button>
-<button class="cat-btn" data-cat="cases">Кейсы</button>
 <button class="cat-btn" data-cat="services">Услуги</button>
-<button class="cat-btn" data-cat="riliks">Рилики</button>
+<button class="cat-btn" data-cat="codexes">Кодексы</button>
 </div>
 
 <section class="riliks-section" id="riliksSection">
 <div class="riliks-header">
-<h2>💎 <span>Рилики</span> — игровая валюта</h2>
-<div class="riliks-price-display" id="riliksPriceDisplay">50 ₽</div>
+<h2>📜 <span>Кодексы</span> — игровая валюта</h2>
+<div class="riliks-price-display" id="riliksPriceDisplay">1 ₽</div>
 </div>
 <div class="slider-wrapper">
 <div class="slider-top">
 <label>Количество:</label>
-<input type="range" id="riliksSlider" min="50" max="10000" step="50" value="500">
+<input type="range" id="riliksSlider" min="5" max="10000" step="5" value="500">
 </div>
 <div class="riliks-input-group">
-<input type="number" id="riliksInput" min="50" max="10000" step="50" value="500">
-<span style="color:var(--text-muted);font-weight:500;">риликов</span>
-<button class="buy-riliks-btn" id="buyRiliksBtn">Купить рилики</button>
+<input type="number" id="riliksInput" min="5" max="10000" step="5" value="500">
+<span style="color:var(--text-muted);font-weight:500;">кодексов</span>
+<button class="buy-riliks-btn" id="buyRiliksBtn">Купить кодексы</button>
 </div>
 </div>
 </section>
@@ -217,28 +216,16 @@ var SBP_RECIPIENT = 'Артём А.';
 var VK_URL = 'https://vk.ru/codexworld';
 
 var products = [
-{id:1,category:'privileges',name:'HERO',bonus:'+20 риликов',price:1,icon:'🛡️',badge:null},
-{id:2,category:'privileges',name:'TITAN',bonus:'+150 риликов',price:2,icon:'⚔️',badge:null},
-{id:3,category:'privileges',name:'AVENGER',bonus:'+350 риликов',price:3,icon:'🏹',badge:null},
-{id:4,category:'privileges',name:'OVERLORD',bonus:'+450 риликов',price:5,icon:'👑',badge:null},
-{id:5,category:'privileges',name:'MAGISTOR',bonus:'+500 риликов',price:7,icon:'🔮',badge:null},
-{id:6,category:'privileges',name:'IMPERATOR',bonus:'+600 риликов',price:10,icon:'🏆',badge:null},
-{id:7,category:'privileges',name:'DRAGON',bonus:'+800 риликов',price:15,icon:'🐉',badge:null},
-{id:8,category:'privileges',name:'RABBIT',bonus:'+1000 риликов',price:29,icon:'🐇',badge:'discount'},
-{id:9,category:'privileges',name:'TIGER',bonus:'+690 риликов',price:69,icon:'🐯',badge:null},
-{id:10,category:'privileges',name:'HYDRA',bonus:'+3000 риликов',price:119,icon:'🐍',badge:null},
-{id:11,category:'privileges',name:'D.HELPER',bonus:'+4000 риликов',price:340,icon:'🧑‍💼',badge:null},
-{id:12,category:'privileges',name:'GOD',bonus:'+5000 риликов',price:375,icon:'🌩️',badge:'discount'},
-{id:13,category:'privileges',name:'PEGAS',bonus:'+6000 риликов',price:444,icon:'🦄',badge:null},
-{id:14,category:'privileges',name:'PUMP',bonus:'+7000 риликов',price:555,icon:'🎃',badge:null},
-{id:15,category:'privileges',name:'D.MODER',bonus:'+8000 риликов',price:888,icon:'🛠️',badge:'discount'},
-{id:16,category:'privileges',name:'D.ADMIN',bonus:'+9000 риликов',price:1500,icon:'👑',badge:'discount'},
-{id:17,category:'cases',name:'ЛЕГЕНДАРНЫЙ КЕЙС 3 ШТ',bonus:'',price:229,icon:'🎁',badge:null},
-{id:18,category:'cases',name:'ЛЕГЕНДАРНЫЙ КЕЙС 10 ШТ',bonus:'',price:339,icon:'📦',badge:null},
-{id:19,category:'cases',name:'КЕЙС С D.ADMIN ИЛИ D.MODER',bonus:'',price:519,icon:'🎰',badge:null},
-{id:20,category:'cases',name:'ЛЕГЕНДАРНЫЙ КЕЙС 25 ШТ',bonus:'',price:599,icon:'💎',badge:null},
-{id:21,category:'services',name:'Размут',bonus:'',price:89,icon:'🔊',badge:null},
-{id:22,category:'services',name:'Разбан',bonus:'',price:319,icon:'🔓',badge:null}
+{id:1,category:'privileges',name:'Боец',bonus:'',price:29,icon:'🗡️',badge:null},
+{id:2,category:'privileges',name:'Мажор',bonus:'',price:69,icon:'💼',badge:null},
+{id:3,category:'privileges',name:'Фантом',bonus:'',price:129,icon:'👻',badge:null},
+{id:4,category:'privileges',name:'Феникс',bonus:'',price:249,icon:'🔥',badge:null},
+{id:5,category:'privileges',name:'Imperator',bonus:'',price:599,icon:'👑',badge:null},
+{id:6,category:'privileges',name:'Герцог',bonus:'',price:899,icon:'🎖️',badge:null},
+{id:7,category:'privileges',name:'Хелпер',bonus:'',price:5555,icon:'🛠️',badge:'bonus'},
+{id:8,category:'services',name:'Размут',bonus:'',price:89,icon:'🔊',badge:null},
+{id:9,category:'services',name:'Разбан',bonus:'',price:249,icon:'🔓',badge:null},
+{id:10,category:'services',name:'Разбан IP',bonus:'',price:479,icon:'🌐',badge:null}
 ];
 
 var currentCategory = 'all';
@@ -297,7 +284,7 @@ var html = '';
 for(var i = 0; i < filtered.length; i++){
 var p = filtered[i];
 var badgeHtml = '';
-if(p.badge === 'discount'){badgeHtml = '<span class="badge discount">СКИДКА</span>'}
+if(p.badge === 'bonus'){badgeHtml = '<span class="badge bonus">БОНУС</span>'}
 html += '<div class="product-card" data-category="' + p.category + '">' + badgeHtml +
 '<div class="product-icon">' + p.icon + '</div>' +
 '<div class="product-name">' + p.name + '</div>' +
@@ -322,10 +309,10 @@ if(product){openPaymentModal(product)}
 
 function updateRiliksPrice(amount){
 var val = parseInt(amount, 10);
-if(isNaN(val)){val = 50}
-val = Math.max(50, Math.min(10000, val));
+if(isNaN(val)){val = 5}
+val = Math.max(5, Math.min(10000, val));
 riliksAmount = val;
-var price = val / 10;
+var price = val / 5;
 riliksPriceDisplay.textContent = formatPrice(price);
 riliksSlider.value = val;
 riliksInput.value = val;
@@ -335,7 +322,7 @@ function openRulesModal(){rulesModal.classList.add('active')}
 function closeRulesModal(){rulesModal.classList.remove('active')}
 
 function getProductName(product){
-return product.isRiliks === true ? riliksAmount + ' риликов' : product.name;
+return product.isRiliks === true ? riliksAmount + ' кодексов' : product.name;
 }
 
 function openPaymentModal(product){
@@ -508,18 +495,18 @@ updateRiliksPrice(val);
 
 riliksInput.addEventListener('blur', function(e){
 var val = parseInt(e.target.value, 10);
-if(isNaN(val)){val = 50}
+if(isNaN(val)){val = 5}
 updateRiliksPrice(val);
 });
 
 buyRiliksBtn.addEventListener('click', function(){
 openPaymentModal({
 id:999,
-category:'riliks',
-name:'Рилики',
+category:'codexes',
+name:'Кодексы',
 bonus:'',
-price:riliksAmount/10,
-icon:'💎',
+price:riliksAmount/5,
+icon:'📜',
 badge:null,
 isRiliks:true
 });
